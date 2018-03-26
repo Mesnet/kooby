@@ -17,3 +17,161 @@
   @import "materialize";
   @import "https://fonts.googleapis.com/icon?family=Material+Icons";
   @import "font-awesome";
+
+  body{
+    padding-top: 80px;
+    background: #FAFAFA;
+  }
+
+a:hover {
+    background: none;
+}
+
+.picto_s{
+  width: 20px;
+}
+
+.picto_m{
+  width: 35px;
+}
+
+.picto_l{
+  width: 50px;
+}
+
+.space{
+  width: 100%;
+}
+
+.undisplay{
+  display: none;
+}
+
+/////////////////// - NAVBAR - //////////////////
+
+.navbar{
+  width: 100%;
+  height: 60px;
+  background: #19bdad;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  display: inline-flex;
+  z-index: 99999;
+}
+
+.navbar2{
+  width: 100%;
+  height: 80px;
+  background: #19bdad;
+  position: fixed;
+  bottom: 0;
+  display: inline-block;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  display: inline-flex;
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+.navbar_left,
+.navbar_right{
+  width: auto;
+}
+
+.navbar_center{
+  width: auto;
+  text-align: center;
+  display: inline-flex;
+  margin: auto;
+  opacity: 0.7;
+}
+
+.navbtn,
+.navbtn_r,
+.navbtn_l{
+  height: 60px;
+  width: 60px;
+  border-right: solid 0.5px white;
+  border-left: solid 0.5px white;
+  text-align: center; 
+}
+
+.navbtn_l{
+  border-right: none;
+}
+
+.navbtn_r{
+  border-left: none;
+}
+
+.nb_picto{
+  width: 25px;
+  padding-top: 20px;
+}
+
+.nb_picto2{
+  width: 30px;
+  padding-top: 17px;
+}
+
+.logo{
+  width: 35px;
+  margin-top: 13px;
+}
+
+.logobtn{
+  height: 60px;
+  width: 60px;
+  border-right: solid 0.5px white;
+  text-align: center; 
+}
+
+.nb_link{
+  &:hover {
+    background: #14b2a3;
+  }
+}
+
+.nb_link.active{
+    background: #14b2a3;  
+}
+
+.nb_dropdown{
+  background: white;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 60px;
+  box-shadow: -1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nb_dropdown_item{
+  width: 100%;
+  height: 50px;
+  border-bottom: solid 1px #19bdad;
+  display: block;
+  padding: 10px;
+  color: #5e5e5e;
+  font-size: 15px;
+  display: inline-flex;
+  &:hover {
+    background: #5ac9be;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.nb_dropdown_icon{
+  width: 25px; 
+  height: 25px; 
+  margin-top: 2px;
+}
+
+.nb_dropdown_title{
+  margin-left: 10px; 
+  padding-top: 5px;
+}
+
