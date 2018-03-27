@@ -21,6 +21,7 @@
   body{
     padding-top: 80px;
     background: #FAFAFA;
+    color: #5F5F5F;
   }
 
 a:hover {
@@ -45,6 +46,13 @@ a:hover {
 
 .undisplay{
   display: none;
+}
+
+.modal-header{
+  text-align: center;
+  padding: 20px;
+  border-bottom: solid 1px #ddd;
+
 }
 
 /////////////////// - NAVBAR - //////////////////
