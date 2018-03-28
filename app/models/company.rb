@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  
-  has_many :users
-
+  validates :name, presence: true
+  has_many :user_companies, dependent: :destroy
+  has_many :users, through: :user_companies
 end

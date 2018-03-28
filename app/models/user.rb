@@ -4,6 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
-  belongs_to :company, optional: true
-  
+  has_many :user_companies, dependent: :destroy
+  has_many :companies, through: :user_companies
+
+  def company_invit
+    self.user_companies.invitation
+  end
+
+  def company
+    self.user_companies.participant.first
+  end
+
 end

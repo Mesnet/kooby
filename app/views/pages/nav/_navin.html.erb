@@ -1,7 +1,7 @@
 <div class="navbar">
   <div class="navbar_left">
     <div class="navbtn_r">
-      <a href="#" class='logo_btn'>
+      <a href="/" class='logo_btn'>
         <%= image_tag "logo.png", class: "logo"%>
       </a>
     </div>
@@ -21,10 +21,18 @@
     </a>
   </div>
   <div class="navbar_right">
-    <div class="navbtn_l nb_link" id="btn_dropdown">
-      <a href="#">
+     <a href="#4" class='navbtn_l nb_link' style='padding-right: 10px; padding-left: 10px;'>
+      <%= image_tag "mail_w.png", class: "nb_picto2"%>
+    </a>
+    <div class="navbtn_l nb_link" id="btn_dropdown" style='padding-top: 5px;'>
+      <%- if current_user.name.nil? %>
         <%= image_tag "user1_w.png", class: "nb_picto"%>
-      </a>
+      <% else %>
+        <div class='pp_round_nav' style="background:<%= current_user.color %>">
+          <%= current_user.initial%>
+        </div>
+        
+      <% end %>
     </div>
   </div>
 </div>
@@ -41,6 +49,12 @@
     <%= image_tag "user1.png", class: 'nb_dropdown_icon' %>
     <div class="nb_dropdown_title">
       Profil
+    </div>
+  </a>
+  <a href="#" class="nb_dropdown_item">
+    <%= image_tag "building.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Entreprise
     </div>
   </a>
   <a href="#" class="nb_dropdown_item">

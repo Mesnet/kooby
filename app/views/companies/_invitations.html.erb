@@ -1,0 +1,37 @@
+<%- if current_user.company_invit.count > 1 %>
+    <ul class="collection" id="company_warning">
+      <li class="collection-item warning_box">
+        <i class="material-icons" style="">warning</i>
+        <div class="warning_text">
+          Attention: Vous ne pouvez pas intégrer plusieurs entreprises
+        </div>
+      </li>
+    </ul>
+<% end %>
+<div style='width: 100%; text-align: center;' id="btn_new_company_area">
+  <a id="btn_new_company" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Créer une nouvelle entreprise</a>
+</div>
+<div class="company_invitations" id="company_invitations_area">
+  <hr>
+  <div class="company_invitations_title" style="font-size: 25px; padding:10px; text-align: center;">
+    Invitations :
+  </div>
+  <div class="row">
+    <% current_user.company_invit.each do |invit| %>
+      <%= render 'companies/invitation', invit: invit %>
+    <% end %>
+  </div>
+</div>
+<div class="undisplay" id="new_company_area">
+  <%= render 'companies/form' %>
+</div>
+<div class="undisplay" style='width: 100%; text-align: center;' id="btn_company_invitations_area">
+  <a id="btn_invitations_company" class="waves-effect waves-light btn"><i class="material-icons left">remove_red_eye</i>Voir les invitations</a>
+</div>
+<script>
+  $(document).ready(function () {
+    $('#btn_new_company, #btn_invitations_company').on('click', function (event) {
+      $('#company_warning, #btn_new_company_area, #company_invitations_area, #new_company_area, #btn_company_invitations_area').slideToggle();
+    });
+  });
+</script>

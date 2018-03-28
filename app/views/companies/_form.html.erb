@@ -1,22 +1,12 @@
-<%= form_with(model: company, local: true) do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
-
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div id='new_company_form'>
+  <%= simple_form_for(Company.new, remote: true)  do |f| %>
+    <div class="company_input">
+      <div class="input-field company_input_name">
+        <i class="material-icons prefix">work</i>
+        <%= f.text_field :name, class: "validate" %>
+        <label for="icon_prefix">Nom votre entreprise</label>
+      </div>
+      <%= f.button :submit, "Créer", class: 'btn_submit_compay' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :company_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

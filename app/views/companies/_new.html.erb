@@ -1,0 +1,20 @@
+<!-- Modal Structure -->
+<div class="modal" id="modal_company">
+  <div class="modal-header">
+    <h4>Entreprise</h4>
+  </div>
+  <div class="modal-content">
+    <%- if current_user.company_invit.any?%>
+      <%= render 'companies/invitations' %>
+    <% else %>
+      <%= render 'companies/form' %>
+    <% end %>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.modal').modal({
+      dismissible: false});
+    $('#modal_company').modal('open');
+  });
+</script>

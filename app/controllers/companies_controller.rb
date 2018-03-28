@@ -1,39 +1,27 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, except: [:create]
 
-  def userinfo
-    respond_to do |format|
-      format.js {render 'pages/registration/user'}
+  def acc_invit
+    @invitation = current_user.user_companies.invitation.where(company: @company).first
+    # Secure Verification (the user has received an invitation from this company )
+    unless @invitation == nil 
+      @invitation.update(invitation: false)
+      current_user.update(company: true)
+      respond_to do |format|
+        format.js
+      end
     end
+    # At this time others invitations are not deleted. But we can add it easily !
   end
 
-  # GET /companies/1
-  # GET /companies/1.json
-  def show
-  end
-
-  # GET /companies/new
-  def new
-    @company = Company.new
-  end
-
-  # GET /companies/1/edit
-  def edit
-  end
-
-  # POST /companies
-  # POST /companies.json
   def create
     @company = Company.new(company_params)
     respond_to do |format|
       if @company.save
-        current_user.update(company_id: @company.id)
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
-      else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        UserCompany.create(company: @company, user: current_user, admin: true)
+        current_user.update(company: true)
+        format.js
       end
     end
   end

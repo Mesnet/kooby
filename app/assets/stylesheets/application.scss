@@ -28,6 +28,11 @@ a:hover {
     background: none;
 }
 
+hr{
+  margin: 20px; 
+  border-top: 1px solid #d0d0d0;
+}
+
 .picto_s{
   width: 20px;
 }
@@ -53,6 +58,17 @@ a:hover {
   padding: 20px;
   border-bottom: solid 1px #ddd;
 
+}
+
+.warning_box{
+  color: #f44236;
+  font-size: 15px;
+  display: inline-flex;
+}
+
+.warning_text{
+  margin-left: 10px;
+  margin-top: 3px;
 }
 
 /////////////////// - NAVBAR - //////////////////
@@ -86,6 +102,7 @@ a:hover {
 .navbar_left,
 .navbar_right{
   width: auto;
+  display: inline-flex;
 }
 
 .navbar_center{
@@ -139,6 +156,7 @@ a:hover {
 .nb_link{
   &:hover {
     background: #14b2a3;
+    cursor: pointer;
   }
 }
 
@@ -183,3 +201,29 @@ a:hover {
   padding-top: 5px;
 }
 
+.pp_round_nav{
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  margin-left: 5px;
+  color: white;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+/////////////////// - COMPANY - //////////////////
+
+.company_input{
+  display: inline-flex; 
+  width: 100%;
+}
+
+.company_input_name{
+  width: 100%;
+}
+
+
+.btn_submit_compay{
+  margin-top: 15px;
+  margin-left: 15px;
+}

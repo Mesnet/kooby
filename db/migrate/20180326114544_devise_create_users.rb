@@ -5,13 +5,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       ## Database authenticatable
       t.boolean :admin, default: false
-      t.boolean :admin_c, default: false
       t.string :color
       t.string :initial
       t.string :name
       t.string :surname
       t.string :pseudo
-      t.references :company, index: true, foreign_key: true
+      t.string :phone
+      t.boolean :company
       
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

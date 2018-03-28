@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
 
+  
+  #Companies
+  resources :companies do 
+    member do 
+      patch :acc_invit
+    end
+  end
 
+  #User
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :companies
+  resources :userinfos
 
-  patch "userinfo" => "companies#userinfo"
+  #Admin
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # ROOT
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   authenticated :user do
     root to: "pages#home", as: :authenticated_root
   end
@@ -15,7 +23,7 @@ Rails.application.routes.draw do
     root 'pages#landing'
   end
 
+  #Test Page
   get "test" => "pages#test"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
